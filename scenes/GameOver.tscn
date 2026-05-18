@@ -1,0 +1,66 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/GameOver.gd" id="1"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1")
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+color = Color(0.04, 0, 0, 1)
+
+[node name="Vignette" type="ColorRect" parent="."]
+anchors_preset = 15
+color = Color(0.3, 0, 0, 0.4)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 80.0
+offset_right = 1220.0
+offset_bottom = 230.0
+text = "GAME OVER"
+theme_override_font_sizes/font_size = 110
+theme_override_colors/font_color = Color(1, 0.1, 0.06, 1)
+theme_override_colors/font_shadow_color = Color(0.5, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+horizontal_alignment = 1
+
+[node name="UI" type="Control" parent="."]
+anchors_preset = 15
+
+[node name="Panel" type="PanelContainer" parent="UI"]
+offset_left = 320.0
+offset_top = 260.0
+offset_right = 960.0
+offset_bottom = 520.0
+
+[node name="VBox" type="VBoxContainer" parent="UI/Panel"]
+anchors_preset = 15
+theme_override_constants/separation = 22
+
+[node name="Score" type="Label" parent="UI/Panel/VBox"]
+text = "Puntuación: 000000"
+theme_override_font_sizes/font_size = 34
+theme_override_colors/font_color = Color(1, 0.88, 0.2, 1)
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="UI/Panel/VBox"]
+custom_minimum_size = Vector2(520, 62)
+text = "↺  REINTENTAR"
+theme_override_font_sizes/font_size = 28
+
+[node name="Menu" type="Button" parent="UI/Panel/VBox"]
+custom_minimum_size = Vector2(520, 52)
+text = "⌂  MENÚ PRINCIPAL"
+theme_override_font_sizes/font_size = 22
+
+[node name="Hint" type="Label" parent="UI"]
+offset_left = 200.0
+offset_top = 535.0
+offset_right = 1080.0
+offset_bottom = 560.0
+text = "Consejo: usa tu sombra (X) para esquivar ataques y llegar a lugares altos"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.7, 0.6, 0.8, 1)
+horizontal_alignment = 1

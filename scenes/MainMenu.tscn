@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://bf1i11xfj6ics"]
+
+[ext_resource type="Script" uid="uid://dve1iggqkymhc" path="res://scripts/MainMenu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://xqc10hdb1ba5" path="res://assets/sprites/bg/bg_level1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://23184s6mjb76" path="res://assets/sprites/cesar/cesar_portrait.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://yb103kjc57uf" path="res://assets/sprites/enemy/enemy_portrait.png" id="4"]
+
+[node name="MainMenu" type="Node2D" unique_id=1426111518]
+script = ExtResource("1")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1728957971]
+texture = ExtResource("2")
+stretch_mode = 6
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=809753242]
+color = Color(0, 0, 0, 0.62)
+
+[node name="Title" type="Label" parent="." unique_id=1834651653]
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 1160.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.95, 0.85, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.5, 0.1, 0.8, 0.9)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 100
+text = "GHOST DRIFT"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="." unique_id=315837613]
+offset_left = 120.0
+offset_top = 162.0
+offset_right = 1160.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.6, 0.48, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Shadow Drift  —  5 niveles  —  Sistema de estrellas  —  Controla tu sombra"
+horizontal_alignment = 1
+
+[node name="UI" type="Control" parent="." unique_id=1606708157]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI" unique_id=724507899]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 240.0
+offset_right = 810.0
+offset_bottom = 580.0
+theme_override_constants/separation = 16
+
+[node name="BtnPlay" type="Button" parent="UI/VBox" unique_id=22677764]
+custom_minimum_size = Vector2(340, 68)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "▶  JUGAR"
+
+[node name="BtnCtrl" type="Button" parent="UI/VBox" unique_id=1154435639]
+custom_minimum_size = Vector2(340, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "⌨  CONTROLES"
+
+[node name="BtnFS" type="Button" parent="UI/VBox" unique_id=1733168290]
+custom_minimum_size = Vector2(340, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "⛶  PANTALLA COMPLETA"
+
+[node name="BtnQuit" type="Button" parent="UI/VBox" unique_id=942873258]
+custom_minimum_size = Vector2(340, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "✕  SALIR"
+
+[node name="CtrlPanel" type="PanelContainer" parent="UI" unique_id=948913689]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 150.0
+offset_right = 1020.0
+offset_bottom = 580.0
+
+[node name="Margin" type="MarginContainer" parent="UI/CtrlPanel" unique_id=382298946]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="CtrlLbl" type="RichTextLabel" parent="UI/CtrlPanel/Margin" unique_id=189869139]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[b][color=yellow]CONTROLES[/color][/b]
+
+[color=yellow]A / ←[/color]    Moverse izquierda
+[color=yellow]D / →[/color]    Moverse derecha
+[color=yellow]Espacio / W[/color]    Saltar
+[color=yellow]Z[/color]    Atacar (Z)
+[color=yellow]X[/color]    Anclar sombra  /  Intercambiar con ella
+[color=yellow]Shift[/color]    Correr
+[color=yellow]Escape[/color]    Pausa
+[color=yellow]F11[/color]    Pantalla completa
+
+[b][color=cyan]MECÁNICA DE SOMBRA[/color][/b]
+Pulsa X para anclar tu sombra en el suelo.
+Pulsa X de nuevo para teletransportarte a ella.
+La barra morada indica la energía restante.
+
+[b][color=gold]SISTEMA DE ESTRELLAS[/color][/b]
+[color=gold]⭐⭐⭐[/color]  Sin muertes, pocos golpes, cristales recogidos, tiempo rápido
+[color=gold]⭐⭐[/color]    Un criterio fallido
+[color=gold]⭐[/color]      Dos criterios fallidos
+[color=gray]☆☆☆[/color]   Completado pero con penalización máxima
+
+[b][color=violet]OBJETIVO DE CADA NIVEL[/color][/b]
+Elimina [b]todos[/b] los esqueletos → la puerta EXIT se desbloquea → ¡avanza!"
+
+[node name="CesarImg" type="TextureRect" parent="UI" unique_id=172165514]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 560.0
+offset_right = 200.0
+offset_bottom = 715.0
+texture = ExtResource("3")
+stretch_mode = 5
+
+[node name="EnemyImg" type="TextureRect" parent="UI" unique_id=1984033541]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 560.0
+offset_right = 1230.0
+offset_bottom = 715.0
+texture = ExtResource("4")
+stretch_mode = 5
+
+[node name="Footer" type="Label" parent="." unique_id=914835951]
+offset_top = 704.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(0.48, 0.43, 0.62, 1)
+theme_override_font_sizes/font_size = 11
+text = "Ghost Drift v2.0 — Proyecto educativo — Recursos: OpenGameArt.org · Kenney.nl (CC0) — Motor: Godot 4 (MIT)"
+horizontal_alignment = 1

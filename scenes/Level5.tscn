@@ -1,0 +1,2878 @@
+[gd_scene format=3 uid="uid://c7rjno8hnbqk1"]
+
+[ext_resource type="Texture2D" uid="uid://cbocdtjgoklmo" path="res://assets/sprites/bg/bg_level5.png" id="BG_TEX"]
+[ext_resource type="Script" uid="uid://c2jchvd52khik" path="res://scripts/Crystal.gd" id="SCR_CRY"]
+[ext_resource type="Script" uid="uid://c314m0xx3w42i" path="res://scripts/Enemy.gd" id="SCR_ENM"]
+[ext_resource type="Script" uid="uid://co3i5hi45mrao" path="res://scripts/HUD.gd" id="SCR_HUD"]
+[ext_resource type="Script" uid="uid://cutru3t47libd" path="res://scripts/Lever.gd" id="SCR_LEVER"]
+[ext_resource type="Script" uid="uid://bga7mvxq4h0db" path="res://scripts/LevelBase.gd" id="SCR_LVL"]
+[ext_resource type="Script" uid="uid://cosiyqtiiyq00" path="res://scripts/MovingPlat.gd" id="SCR_MPLAT"]
+[ext_resource type="Script" uid="uid://djir70jlfbu0s" path="res://scripts/PauseUI.gd" id="SCR_PAUSE"]
+[ext_resource type="Script" uid="uid://cnancmhflhppm" path="res://scripts/Player.gd" id="SCR_PLR"]
+[ext_resource type="Script" uid="uid://cvfyyluuiuc30" path="res://scripts/ResultsUI.gd" id="SCR_RESULTS"]
+[ext_resource type="Script" uid="uid://chf7o1najrfqx" path="res://scripts/Spikes.gd" id="SCR_SPIKES"]
+[ext_resource type="Script" uid="uid://ctewtpsaf1ci1" path="res://scripts/Torch.gd" id="SCR_TORCH"]
+[ext_resource type="Texture2D" uid="uid://eqwb2g75ffvq" path="res://assets/sprites/tiles/barrel.png" id="TILE_BARREL"]
+[ext_resource type="Texture2D" uid="uid://dfvm8yrts5a81" path="res://assets/sprites/tiles/chain.png" id="TILE_CHAIN"]
+[ext_resource type="Texture2D" uid="uid://d03wr3ygmefao" path="res://assets/sprites/tiles/lever_off.png" id="TILE_LEVER"]
+[ext_resource type="Texture2D" uid="uid://c2k44wtuhk6q2" path="res://assets/sprites/tiles/tile_hell.png" id="TILE_MAIN"]
+[ext_resource type="Texture2D" uid="uid://dq4vvya4th3gt" path="res://assets/sprites/tiles/moving_platform.png" id="TILE_MPLAT"]
+[ext_resource type="Texture2D" uid="uid://dmp8u6xfvafrq" path="res://assets/sprites/tiles/tile_platform.png" id="TILE_PLAT"]
+[ext_resource type="Texture2D" uid="uid://pmpo4wgj6hxv" path="res://assets/sprites/tiles/spikes.png" id="TILE_SPIKE"]
+[ext_resource type="Texture2D" uid="uid://btdwby4fjin2p" path="res://assets/sprites/cesar/cesar_attack_00.png" id="T_cesar_cesar_attack_0"]
+[ext_resource type="Texture2D" uid="uid://ori08q8gqg2w" path="res://assets/sprites/cesar/cesar_attack_01.png" id="T_cesar_cesar_attack_1"]
+[ext_resource type="Texture2D" uid="uid://dp8d4sobg3u01" path="res://assets/sprites/cesar/cesar_attack_02.png" id="T_cesar_cesar_attack_2"]
+[ext_resource type="Texture2D" uid="uid://x613gqboluj" path="res://assets/sprites/cesar/cesar_attack_03.png" id="T_cesar_cesar_attack_3"]
+[ext_resource type="Texture2D" uid="uid://de6dc0qxpfbgd" path="res://assets/sprites/cesar/cesar_attack_04.png" id="T_cesar_cesar_attack_4"]
+[ext_resource type="Texture2D" uid="uid://b8rdg26uhbj64" path="res://assets/sprites/cesar/cesar_attack_05.png" id="T_cesar_cesar_attack_5"]
+[ext_resource type="Texture2D" uid="uid://bhumo170dlpnj" path="res://assets/sprites/cesar/cesar_attack_06.png" id="T_cesar_cesar_attack_6"]
+[ext_resource type="Texture2D" uid="uid://c6f81d6chtrrc" path="res://assets/sprites/cesar/cesar_attack_07.png" id="T_cesar_cesar_attack_7"]
+[ext_resource type="Texture2D" uid="uid://v600hr8807tn" path="res://assets/sprites/cesar/cesar_attack_08.png" id="T_cesar_cesar_attack_8"]
+[ext_resource type="Texture2D" uid="uid://nirclytqumfy" path="res://assets/sprites/cesar/cesar_damage_00.png" id="T_cesar_cesar_damage_0"]
+[ext_resource type="Texture2D" uid="uid://cq3amcq3a4r7w" path="res://assets/sprites/cesar/cesar_damage_01.png" id="T_cesar_cesar_damage_1"]
+[ext_resource type="Texture2D" uid="uid://bbvfvdleobjkk" path="res://assets/sprites/cesar/cesar_damage_02.png" id="T_cesar_cesar_damage_2"]
+[ext_resource type="Texture2D" uid="uid://c3bihp1bb1snu" path="res://assets/sprites/cesar/cesar_damage_03.png" id="T_cesar_cesar_damage_3"]
+[ext_resource type="Texture2D" uid="uid://c30kkrsxiw5l2" path="res://assets/sprites/cesar/cesar_damage_04.png" id="T_cesar_cesar_damage_4"]
+[ext_resource type="Texture2D" uid="uid://dns8g6c5p8owu" path="res://assets/sprites/cesar/cesar_damage_05.png" id="T_cesar_cesar_damage_5"]
+[ext_resource type="Texture2D" uid="uid://6si48v16aux4" path="res://assets/sprites/cesar/cesar_damage_06.png" id="T_cesar_cesar_damage_6"]
+[ext_resource type="Texture2D" uid="uid://bpy4du8mvu255" path="res://assets/sprites/cesar/cesar_damage_07.png" id="T_cesar_cesar_damage_7"]
+[ext_resource type="Texture2D" uid="uid://bdrvn6qaxyf38" path="res://assets/sprites/cesar/cesar_damage_08.png" id="T_cesar_cesar_damage_8"]
+[ext_resource type="Texture2D" uid="uid://dm3v21j53wyx5" path="res://assets/sprites/cesar/cesar_idle_00.png" id="T_cesar_cesar_idle_0"]
+[ext_resource type="Texture2D" uid="uid://ca5i0sffrs0aw" path="res://assets/sprites/cesar/cesar_idle_01.png" id="T_cesar_cesar_idle_1"]
+[ext_resource type="Texture2D" uid="uid://dcp100x7p01w" path="res://assets/sprites/cesar/cesar_idle_02.png" id="T_cesar_cesar_idle_2"]
+[ext_resource type="Texture2D" uid="uid://4p6lsaeq2wvf" path="res://assets/sprites/cesar/cesar_idle_03.png" id="T_cesar_cesar_idle_3"]
+[ext_resource type="Texture2D" uid="uid://m2dsnenb7o6g" path="res://assets/sprites/cesar/cesar_idle_04.png" id="T_cesar_cesar_idle_4"]
+[ext_resource type="Texture2D" uid="uid://dp3jhad1qxdpv" path="res://assets/sprites/cesar/cesar_idle_05.png" id="T_cesar_cesar_idle_5"]
+[ext_resource type="Texture2D" uid="uid://bmhn4pw30ych7" path="res://assets/sprites/cesar/cesar_idle_06.png" id="T_cesar_cesar_idle_6"]
+[ext_resource type="Texture2D" uid="uid://gi2blijgp0jk" path="res://assets/sprites/cesar/cesar_idle_07.png" id="T_cesar_cesar_idle_7"]
+[ext_resource type="Texture2D" uid="uid://cue72kf73c53b" path="res://assets/sprites/cesar/cesar_idle_08.png" id="T_cesar_cesar_idle_8"]
+[ext_resource type="Texture2D" uid="uid://cxwbojijkf3m3" path="res://assets/sprites/cesar/cesar_jump_00.png" id="T_cesar_cesar_jump_0"]
+[ext_resource type="Texture2D" uid="uid://ju4y3m8uyhte" path="res://assets/sprites/cesar/cesar_jump_01.png" id="T_cesar_cesar_jump_1"]
+[ext_resource type="Texture2D" uid="uid://bulghv0m5eaef" path="res://assets/sprites/cesar/cesar_jump_02.png" id="T_cesar_cesar_jump_2"]
+[ext_resource type="Texture2D" uid="uid://c0qthmies1d27" path="res://assets/sprites/cesar/cesar_jump_03.png" id="T_cesar_cesar_jump_3"]
+[ext_resource type="Texture2D" uid="uid://b7f152cvpnb4h" path="res://assets/sprites/cesar/cesar_jump_04.png" id="T_cesar_cesar_jump_4"]
+[ext_resource type="Texture2D" uid="uid://cjw0f3k5vhux5" path="res://assets/sprites/cesar/cesar_jump_05.png" id="T_cesar_cesar_jump_5"]
+[ext_resource type="Texture2D" uid="uid://bmrmp821c5oxn" path="res://assets/sprites/cesar/cesar_jump_06.png" id="T_cesar_cesar_jump_6"]
+[ext_resource type="Texture2D" uid="uid://dxqw2kbkm2stp" path="res://assets/sprites/cesar/cesar_jump_07.png" id="T_cesar_cesar_jump_7"]
+[ext_resource type="Texture2D" uid="uid://ditjoln3tw5hb" path="res://assets/sprites/cesar/cesar_jump_08.png" id="T_cesar_cesar_jump_8"]
+[ext_resource type="Texture2D" uid="uid://xhlmuq1y0hoo" path="res://assets/sprites/cesar/cesar_run_00.png" id="T_cesar_cesar_run_0"]
+[ext_resource type="Texture2D" uid="uid://k5qoq8oy05q0" path="res://assets/sprites/cesar/cesar_run_01.png" id="T_cesar_cesar_run_1"]
+[ext_resource type="Texture2D" uid="uid://dh60jkacekl2b" path="res://assets/sprites/cesar/cesar_run_02.png" id="T_cesar_cesar_run_2"]
+[ext_resource type="Texture2D" uid="uid://d10i7u25cghcn" path="res://assets/sprites/cesar/cesar_run_03.png" id="T_cesar_cesar_run_3"]
+[ext_resource type="Texture2D" uid="uid://dneaqwclnta45" path="res://assets/sprites/cesar/cesar_run_04.png" id="T_cesar_cesar_run_4"]
+[ext_resource type="Texture2D" uid="uid://c6ldbfetk1l6v" path="res://assets/sprites/cesar/cesar_run_05.png" id="T_cesar_cesar_run_5"]
+[ext_resource type="Texture2D" uid="uid://brss6c88qsdcm" path="res://assets/sprites/cesar/cesar_run_06.png" id="T_cesar_cesar_run_6"]
+[ext_resource type="Texture2D" uid="uid://bo0f0s8fysj4b" path="res://assets/sprites/cesar/cesar_run_07.png" id="T_cesar_cesar_run_7"]
+[ext_resource type="Texture2D" uid="uid://dewivcy3vxtrd" path="res://assets/sprites/cesar/cesar_shadow_00.png" id="T_cesar_cesar_shadow_0"]
+[ext_resource type="Texture2D" uid="uid://bcafmy458s6h0" path="res://assets/sprites/cesar/cesar_shadow_01.png" id="T_cesar_cesar_shadow_1"]
+[ext_resource type="Texture2D" uid="uid://dietkms8ndxqh" path="res://assets/sprites/cesar/cesar_shadow_02.png" id="T_cesar_cesar_shadow_2"]
+[ext_resource type="Texture2D" uid="uid://da4ug4jari48y" path="res://assets/sprites/cesar/cesar_shadow_03.png" id="T_cesar_cesar_shadow_3"]
+[ext_resource type="Texture2D" uid="uid://brr6371r7igyi" path="res://assets/sprites/cesar/cesar_shadow_04.png" id="T_cesar_cesar_shadow_4"]
+[ext_resource type="Texture2D" uid="uid://rj1dnbytfji" path="res://assets/sprites/cesar/cesar_shadow_05.png" id="T_cesar_cesar_shadow_5"]
+[ext_resource type="Texture2D" uid="uid://c56rlj4trejh3" path="res://assets/sprites/cesar/cesar_shadow_06.png" id="T_cesar_cesar_shadow_6"]
+[ext_resource type="Texture2D" uid="uid://beisbn43fd5nf" path="res://assets/sprites/cesar/cesar_shadow_07.png" id="T_cesar_cesar_shadow_7"]
+[ext_resource type="Texture2D" uid="uid://bs147qqdjo62u" path="res://assets/sprites/cesar/cesar_shadow_08.png" id="T_cesar_cesar_shadow_8"]
+[ext_resource type="Texture2D" uid="uid://c6wlbwymnn3nq" path="res://assets/sprites/cesar/cesar_shadow_09.png" id="T_cesar_cesar_shadow_9"]
+[ext_resource type="Texture2D" uid="uid://ckbbe6k5p0tfu" path="res://assets/sprites/cesar/cesar_shadow_10.png" id="T_cesar_cesar_shadow_10"]
+[ext_resource type="Texture2D" uid="uid://mgogtlbcd062" path="res://assets/sprites/cesar/cesar_shadow_11.png" id="T_cesar_cesar_shadow_11"]
+[ext_resource type="Texture2D" uid="uid://d32ae3rbjpk16" path="res://assets/sprites/cesar/cesar_shadow_12.png" id="T_cesar_cesar_shadow_12"]
+[ext_resource type="Texture2D" uid="uid://skno01volon6" path="res://assets/sprites/cesar/cesar_walk_00.png" id="T_cesar_cesar_walk_0"]
+[ext_resource type="Texture2D" uid="uid://dy4yuyk0q4l4o" path="res://assets/sprites/cesar/cesar_walk_01.png" id="T_cesar_cesar_walk_1"]
+[ext_resource type="Texture2D" uid="uid://8ngjs80pqnh2" path="res://assets/sprites/cesar/cesar_walk_02.png" id="T_cesar_cesar_walk_2"]
+[ext_resource type="Texture2D" uid="uid://cds71b8fdx2h1" path="res://assets/sprites/cesar/cesar_walk_03.png" id="T_cesar_cesar_walk_3"]
+[ext_resource type="Texture2D" uid="uid://g3xuaunvnors" path="res://assets/sprites/enemy/enemy_death_00.png" id="T_enemy_enemy_death_0"]
+[ext_resource type="Texture2D" uid="uid://7b3laq1n2175" path="res://assets/sprites/enemy/enemy_death_01.png" id="T_enemy_enemy_death_1"]
+[ext_resource type="Texture2D" uid="uid://bfaoq65hstj1" path="res://assets/sprites/enemy/enemy_death_02.png" id="T_enemy_enemy_death_2"]
+[ext_resource type="Texture2D" uid="uid://bi6b4337qwmmv" path="res://assets/sprites/enemy/enemy_death_03.png" id="T_enemy_enemy_death_3"]
+[ext_resource type="Texture2D" uid="uid://cai3ywh1ktv0e" path="res://assets/sprites/enemy/enemy_death_04.png" id="T_enemy_enemy_death_4"]
+[ext_resource type="Texture2D" uid="uid://lbhdwufpha30" path="res://assets/sprites/enemy/enemy_death_05.png" id="T_enemy_enemy_death_5"]
+[ext_resource type="Texture2D" uid="uid://dc4nmbi2hmvbk" path="res://assets/sprites/enemy/enemy_death_06.png" id="T_enemy_enemy_death_6"]
+[ext_resource type="Texture2D" uid="uid://db6iwb8w8vuhn" path="res://assets/sprites/enemy/enemy_death_07.png" id="T_enemy_enemy_death_7"]
+[ext_resource type="Texture2D" uid="uid://b2bcmwsmpjnoq" path="res://assets/sprites/enemy/enemy_death_08.png" id="T_enemy_enemy_death_8"]
+[ext_resource type="Texture2D" uid="uid://cs5j07uwd2oqa" path="res://assets/sprites/enemy/enemy_idle_00.png" id="T_enemy_enemy_idle_0"]
+[ext_resource type="Texture2D" uid="uid://dejqlt5omyq58" path="res://assets/sprites/enemy/enemy_idle_01.png" id="T_enemy_enemy_idle_1"]
+[ext_resource type="Texture2D" uid="uid://b4r21wwetoejm" path="res://assets/sprites/enemy/enemy_idle_02.png" id="T_enemy_enemy_idle_2"]
+[ext_resource type="Texture2D" uid="uid://bexsis713ocbm" path="res://assets/sprites/enemy/enemy_idle_03.png" id="T_enemy_enemy_idle_3"]
+[ext_resource type="Texture2D" uid="uid://dpgp0ac2on56" path="res://assets/sprites/enemy/enemy_idle_04.png" id="T_enemy_enemy_idle_4"]
+[ext_resource type="Texture2D" uid="uid://cnob61ndgkx0u" path="res://assets/sprites/enemy/enemy_idle_05.png" id="T_enemy_enemy_idle_5"]
+[ext_resource type="Texture2D" uid="uid://dx5bk8jskcngp" path="res://assets/sprites/enemy/enemy_idle_06.png" id="T_enemy_enemy_idle_6"]
+[ext_resource type="Texture2D" uid="uid://dicc64fp6vqql" path="res://assets/sprites/enemy/enemy_idle_07.png" id="T_enemy_enemy_idle_7"]
+[ext_resource type="Texture2D" uid="uid://cuxi3j8guxgph" path="res://assets/sprites/enemy/enemy_run_00.png" id="T_enemy_enemy_run_0"]
+[ext_resource type="Texture2D" uid="uid://cvi0u287mbhtd" path="res://assets/sprites/enemy/enemy_run_01.png" id="T_enemy_enemy_run_1"]
+[ext_resource type="Texture2D" uid="uid://biqpbrr77erq5" path="res://assets/sprites/enemy/enemy_run_02.png" id="T_enemy_enemy_run_2"]
+[ext_resource type="Texture2D" uid="uid://bpl2128m1no4d" path="res://assets/sprites/enemy/enemy_run_03.png" id="T_enemy_enemy_run_3"]
+[ext_resource type="Texture2D" uid="uid://cytc7g7pujeuh" path="res://assets/sprites/enemy/enemy_run_04.png" id="T_enemy_enemy_run_4"]
+[ext_resource type="Texture2D" uid="uid://b0xn812jeursb" path="res://assets/sprites/enemy/enemy_run_05.png" id="T_enemy_enemy_run_5"]
+[ext_resource type="Texture2D" uid="uid://bluxpb8ni7th6" path="res://assets/sprites/enemy/enemy_run_06.png" id="T_enemy_enemy_run_6"]
+[ext_resource type="Texture2D" uid="uid://cngss13ext1iq" path="res://assets/sprites/enemy/enemy_run_07.png" id="T_enemy_enemy_run_7"]
+[ext_resource type="Texture2D" uid="uid://dbwguha4b0tch" path="res://assets/sprites/enemy/enemy_walk_00.png" id="T_enemy_enemy_walk_0"]
+[ext_resource type="Texture2D" uid="uid://rhc674qoe8nn" path="res://assets/sprites/enemy/enemy_walk_01.png" id="T_enemy_enemy_walk_1"]
+[ext_resource type="Texture2D" uid="uid://dxd8b1ybs4hlk" path="res://assets/sprites/enemy/enemy_walk_02.png" id="T_enemy_enemy_walk_2"]
+[ext_resource type="Texture2D" uid="uid://bpbxw6ydrw7mo" path="res://assets/sprites/enemy/enemy_walk_03.png" id="T_enemy_enemy_walk_3"]
+[ext_resource type="Texture2D" uid="uid://d2rti1n3rxr10" path="res://assets/sprites/enemy/enemy_walk_04.png" id="T_enemy_enemy_walk_4"]
+[ext_resource type="Texture2D" uid="uid://b5gvd4hx3i3di" path="res://assets/sprites/enemy/enemy_walk_05.png" id="T_enemy_enemy_walk_5"]
+[ext_resource type="Texture2D" uid="uid://bgp2oqpg0qiym" path="res://assets/sprites/enemy/enemy_walk_06.png" id="T_enemy_enemy_walk_6"]
+[ext_resource type="Texture2D" uid="uid://cuv8bf1ej124g" path="res://assets/sprites/enemy/enemy_walk_07.png" id="T_enemy_enemy_walk_7"]
+[ext_resource type="Texture2D" uid="uid://e61cb0a64sq8" path="res://assets/sprites/enemy/enemy_walk_08.png" id="T_enemy_enemy_walk_8"]
+[ext_resource type="Texture2D" uid="uid://dp5dtftg3cnkd" path="res://assets/sprites/items/crystal_red_00.png" id="T_items_crystal_red_0"]
+[ext_resource type="Texture2D" uid="uid://c8wybfa47p8t1" path="res://assets/sprites/items/crystal_red_01.png" id="T_items_crystal_red_1"]
+[ext_resource type="Texture2D" uid="uid://cop5tog8pylbd" path="res://assets/sprites/items/crystal_red_02.png" id="T_items_crystal_red_2"]
+[ext_resource type="Texture2D" uid="uid://dvfgjm7tkwnrr" path="res://assets/sprites/items/crystal_red_03.png" id="T_items_crystal_red_3"]
+[ext_resource type="Texture2D" uid="uid://otaqawhvh600" path="res://assets/sprites/items/crystal_red_04.png" id="T_items_crystal_red_4"]
+[ext_resource type="Texture2D" uid="uid://s5anp7s2k1pi" path="res://assets/sprites/items/crystal_red_05.png" id="T_items_crystal_red_5"]
+[ext_resource type="Texture2D" uid="uid://byh2de1fbcyij" path="res://assets/sprites/items/torch_00.png" id="T_items_torch_0"]
+[ext_resource type="Texture2D" uid="uid://cgwe48jw85v7t" path="res://assets/sprites/items/torch_01.png" id="T_items_torch_1"]
+[ext_resource type="Texture2D" uid="uid://12cepnxa5kfw" path="res://assets/sprites/items/torch_02.png" id="T_items_torch_2"]
+[ext_resource type="Texture2D" uid="uid://cd6wnh21keo40" path="res://assets/sprites/items/torch_03.png" id="T_items_torch_3"]
+
+[sub_resource type="RectangleShape2D" id="SH_GROUND"]
+size = Vector2(2800, 36)
+
+[sub_resource type="RectangleShape2D" id="SH_P0"]
+size = Vector2(240, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P1"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P2"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P3"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P4"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P5"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P6"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P7"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P8"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P9"]
+size = Vector2(200, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P10"]
+size = Vector2(160, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_P11"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P12"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P13"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P14"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P15"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P16"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P17"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P18"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P19"]
+size = Vector2(180, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P20"]
+size = Vector2(200, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P21"]
+size = Vector2(140, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P22"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P23"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P24"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P25"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P26"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P27"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P28"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P29"]
+size = Vector2(160, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P30"]
+size = Vector2(130, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P31"]
+size = Vector2(140, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P32"]
+size = Vector2(130, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P33"]
+size = Vector2(140, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P34"]
+size = Vector2(130, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P35"]
+size = Vector2(140, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P36"]
+size = Vector2(140, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P37"]
+size = Vector2(110, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P38"]
+size = Vector2(120, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P39"]
+size = Vector2(110, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P40"]
+size = Vector2(120, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P41"]
+size = Vector2(110, 22)
+
+[sub_resource type="RectangleShape2D" id="SH_P42"]
+size = Vector2(400, 28)
+
+[sub_resource type="RectangleShape2D" id="SH_MP0"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP1"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP2"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP3"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP4"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP5"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_MP6"]
+size = Vector2(88, 18)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE0"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE1"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE2"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE3"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE4"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE5"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE6"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE7"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE8"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE9"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE10"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE11"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE12"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE13"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE14"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="SH_SPIKE15"]
+size = Vector2(48, 16)
+
+[sub_resource type="SpriteFrames" id="SF_TORCH"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_items_torch_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_torch_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_torch_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_torch_3")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="SH_LEV0"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="SH_LEV1"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="SH_LEV2"]
+radius = 22.0
+
+[sub_resource type="SpriteFrames" id="SF_ENEMY"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_death_8")
+}],
+"loop": false,
+"name": &"enemy_death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_idle_7")
+}],
+"loop": true,
+"name": &"enemy_idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_run_7")
+}],
+"loop": true,
+"name": &"enemy_run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_enemy_enemy_walk_8")
+}],
+"loop": true,
+"name": &"enemy_walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="SH_ENEMY"]
+radius = 20.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="SH_DETECT"]
+radius = 54.037025
+
+[sub_resource type="SpriteFrames" id="SF_RED"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_items_crystal_red_5")
+}],
+"loop": true,
+"name": &"crystal_red",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="SH_CRYSTAL"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SF_CESAR"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_attack_8")
+}],
+"loop": false,
+"name": &"cesar_attack",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_damage_8")
+}],
+"loop": false,
+"name": &"cesar_damage",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_idle_8")
+}],
+"loop": true,
+"name": &"cesar_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_jump_8")
+}],
+"loop": false,
+"name": &"cesar_jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_run_7")
+}],
+"loop": true,
+"name": &"cesar_run",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_shadow_12")
+}],
+"loop": false,
+"name": &"cesar_shadow",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_walk_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_walk_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_walk_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("T_cesar_cesar_walk_3")
+}],
+"loop": true,
+"name": &"cesar_walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="SH_PLAYER"]
+radius = 18.0
+height = 50.0
+
+[sub_resource type="RectangleShape2D" id="SH_ATTACK"]
+size = Vector2(55, 38)
+
+[sub_resource type="RectangleShape2D" id="SH_EXIT"]
+size = Vector2(54, 90)
+
+[node name="Level5" type="Node2D" unique_id=1679260730]
+script = ExtResource("SCR_LVL")
+level_num = 5
+music = "lvl5"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=43791563]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=512139104]
+motion_scale = Vector2(0.45, 0)
+
+[node name="BGSprite" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1474320447]
+offset_right = 2500.0
+offset_bottom = 720.0
+texture = ExtResource("BG_TEX")
+stretch_mode = 6
+
+[node name="BgOverlay" type="ColorRect" parent="." unique_id=347321035]
+offset_right = 2500.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.22)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=878366097]
+position = Vector2(1400, 706)
+
+[node name="GS" type="CollisionShape2D" parent="Ground" unique_id=174706883]
+shape = SubResource("SH_GROUND")
+
+[node name="GV" type="ColorRect" parent="Ground" unique_id=847093544]
+offset_left = -1400.0
+offset_top = -18.0
+offset_right = 1400.0
+offset_bottom = 18.0
+color = Color(0.06, 0.04, 0.1, 1)
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1526600761]
+
+[node name="P0" type="StaticBody2D" parent="Platforms" unique_id=162775342]
+position = Vector2(120, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P0" unique_id=651958678]
+shape = SubResource("SH_P0")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P0" unique_id=319341091]
+offset_left = -120.0
+offset_top = -14.0
+offset_right = 120.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P1" type="StaticBody2D" parent="Platforms" unique_id=1928560308]
+position = Vector2(400, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P1" unique_id=1523754848]
+shape = SubResource("SH_P1")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P1" unique_id=1759437458]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P2" type="StaticBody2D" parent="Platforms" unique_id=831992981]
+position = Vector2(660, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P2" unique_id=594632852]
+shape = SubResource("SH_P2")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P2" unique_id=1808965364]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P3" type="StaticBody2D" parent="Platforms" unique_id=616280100]
+position = Vector2(920, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P3" unique_id=1816190325]
+shape = SubResource("SH_P3")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P3" unique_id=99350980]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P4" type="StaticBody2D" parent="Platforms" unique_id=971915043]
+position = Vector2(1180, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P4" unique_id=1644995890]
+shape = SubResource("SH_P4")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P4" unique_id=978559515]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P5" type="StaticBody2D" parent="Platforms" unique_id=1524475690]
+position = Vector2(1440, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P5" unique_id=2002243453]
+shape = SubResource("SH_P5")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P5" unique_id=1505836543]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P6" type="StaticBody2D" parent="Platforms" unique_id=191298512]
+position = Vector2(1700, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P6" unique_id=2019807472]
+shape = SubResource("SH_P6")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P6" unique_id=2130138114]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P7" type="StaticBody2D" parent="Platforms" unique_id=1566234359]
+position = Vector2(1960, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P7" unique_id=1074256851]
+shape = SubResource("SH_P7")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P7" unique_id=2090581143]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P8" type="StaticBody2D" parent="Platforms" unique_id=1028964079]
+position = Vector2(2220, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P8" unique_id=1989953512]
+shape = SubResource("SH_P8")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P8" unique_id=1708997568]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P9" type="StaticBody2D" parent="Platforms" unique_id=252418736]
+position = Vector2(2480, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P9" unique_id=554919416]
+shape = SubResource("SH_P9")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P9" unique_id=1934565773]
+offset_left = -100.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P10" type="StaticBody2D" parent="Platforms" unique_id=1236681730]
+position = Vector2(2720, 624)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P10" unique_id=1986979318]
+shape = SubResource("SH_P10")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P10" unique_id=2013303961]
+offset_left = -80.0
+offset_top = -14.0
+offset_right = 80.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P11" type="StaticBody2D" parent="Platforms" unique_id=438179135]
+position = Vector2(180, 501)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P11" unique_id=1030787948]
+shape = SubResource("SH_P11")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P11" unique_id=677724749]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P12" type="StaticBody2D" parent="Platforms" unique_id=1444093123]
+position = Vector2(410, 481)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P12" unique_id=248993739]
+shape = SubResource("SH_P12")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P12" unique_id=621650400]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P13" type="StaticBody2D" parent="Platforms" unique_id=1341301467]
+position = Vector2(650, 461)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P13" unique_id=461483932]
+shape = SubResource("SH_P13")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P13" unique_id=952643741]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P14" type="StaticBody2D" parent="Platforms" unique_id=691141200]
+position = Vector2(880, 481)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P14" unique_id=1340040492]
+shape = SubResource("SH_P14")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P14" unique_id=2078034994]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P15" type="StaticBody2D" parent="Platforms" unique_id=311321088]
+position = Vector2(1130, 461)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P15" unique_id=1125186249]
+shape = SubResource("SH_P15")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P15" unique_id=1796314547]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P16" type="StaticBody2D" parent="Platforms" unique_id=2041001451]
+position = Vector2(1390, 476)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P16" unique_id=2048940094]
+shape = SubResource("SH_P16")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P16" unique_id=1966788720]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P17" type="StaticBody2D" parent="Platforms" unique_id=522212826]
+position = Vector2(1670, 461)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P17" unique_id=1473440290]
+shape = SubResource("SH_P17")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P17" unique_id=147774442]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P18" type="StaticBody2D" parent="Platforms" unique_id=1787818198]
+position = Vector2(1950, 476)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P18" unique_id=585316576]
+shape = SubResource("SH_P18")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P18" unique_id=1575274406]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P19" type="StaticBody2D" parent="Platforms" unique_id=772723755]
+position = Vector2(2250, 461)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P19" unique_id=1676694944]
+shape = SubResource("SH_P19")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P19" unique_id=1119393751]
+offset_left = -90.0
+offset_top = -11.0
+offset_right = 90.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P20" type="StaticBody2D" parent="Platforms" unique_id=1265653279]
+position = Vector2(2560, 476)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P20" unique_id=2026304133]
+shape = SubResource("SH_P20")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P20" unique_id=1423187353]
+offset_left = -100.0
+offset_top = -11.0
+offset_right = 100.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P21" type="StaticBody2D" parent="Platforms" unique_id=1602871654]
+position = Vector2(130, 361)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P21" unique_id=1466651791]
+shape = SubResource("SH_P21")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P21" unique_id=2018542551]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 70.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P22" type="StaticBody2D" parent="Platforms" unique_id=1917410138]
+position = Vector2(360, 341)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P22" unique_id=629615147]
+shape = SubResource("SH_P22")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P22" unique_id=1514413373]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P23" type="StaticBody2D" parent="Platforms" unique_id=1262537764]
+position = Vector2(600, 321)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P23" unique_id=1471920562]
+shape = SubResource("SH_P23")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P23" unique_id=746821618]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P24" type="StaticBody2D" parent="Platforms" unique_id=1532954096]
+position = Vector2(860, 336)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P24" unique_id=2093025534]
+shape = SubResource("SH_P24")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P24" unique_id=500981766]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P25" type="StaticBody2D" parent="Platforms" unique_id=1284145299]
+position = Vector2(1140, 321)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P25" unique_id=1524467368]
+shape = SubResource("SH_P25")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P25" unique_id=1869201034]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P26" type="StaticBody2D" parent="Platforms" unique_id=417079981]
+position = Vector2(1440, 336)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P26" unique_id=1448637302]
+shape = SubResource("SH_P26")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P26" unique_id=1082388587]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P27" type="StaticBody2D" parent="Platforms" unique_id=1324879096]
+position = Vector2(1760, 321)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P27" unique_id=1781553797]
+shape = SubResource("SH_P27")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P27" unique_id=1118266167]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P28" type="StaticBody2D" parent="Platforms" unique_id=213721206]
+position = Vector2(2080, 336)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P28" unique_id=524745892]
+shape = SubResource("SH_P28")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P28" unique_id=541865651]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P29" type="StaticBody2D" parent="Platforms" unique_id=1269386416]
+position = Vector2(2420, 321)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P29" unique_id=841774451]
+shape = SubResource("SH_P29")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P29" unique_id=934773770]
+offset_left = -80.0
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P30" type="StaticBody2D" parent="Platforms" unique_id=2021624181]
+position = Vector2(265, 211)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P30" unique_id=753340081]
+shape = SubResource("SH_P30")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P30" unique_id=2133299497]
+offset_left = -65.0
+offset_top = -11.0
+offset_right = 65.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P31" type="StaticBody2D" parent="Platforms" unique_id=403363028]
+position = Vector2(550, 196)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P31" unique_id=65217444]
+shape = SubResource("SH_P31")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P31" unique_id=782223214]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 70.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P32" type="StaticBody2D" parent="Platforms" unique_id=852983550]
+position = Vector2(865, 206)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P32" unique_id=487600138]
+shape = SubResource("SH_P32")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P32" unique_id=2945801]
+offset_left = -65.0
+offset_top = -11.0
+offset_right = 65.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P33" type="StaticBody2D" parent="Platforms" unique_id=1787192415]
+position = Vector2(1210, 191)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P33" unique_id=1687611393]
+shape = SubResource("SH_P33")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P33" unique_id=2023795987]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 70.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P34" type="StaticBody2D" parent="Platforms" unique_id=1648725343]
+position = Vector2(1585, 206)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P34" unique_id=1383193853]
+shape = SubResource("SH_P34")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P34" unique_id=1608708493]
+offset_left = -65.0
+offset_top = -11.0
+offset_right = 65.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P35" type="StaticBody2D" parent="Platforms" unique_id=1814903005]
+position = Vector2(1990, 191)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P35" unique_id=1873213898]
+shape = SubResource("SH_P35")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P35" unique_id=1331095056]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 70.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P36" type="StaticBody2D" parent="Platforms" unique_id=1617441879]
+position = Vector2(2390, 206)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P36" unique_id=2103808261]
+shape = SubResource("SH_P36")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P36" unique_id=633641245]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 70.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="P37" type="StaticBody2D" parent="Platforms" unique_id=1920787172]
+position = Vector2(435, 101)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P37" unique_id=1010503703]
+shape = SubResource("SH_P37")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P37" unique_id=984185131]
+offset_left = -55.0
+offset_top = -11.0
+offset_right = 55.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_PLAT")
+stretch_mode = 1
+
+[node name="P38" type="StaticBody2D" parent="Platforms" unique_id=223400186]
+position = Vector2(800, 86)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P38" unique_id=1724268678]
+shape = SubResource("SH_P38")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P38" unique_id=431059612]
+offset_left = -60.0
+offset_top = -11.0
+offset_right = 60.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_PLAT")
+stretch_mode = 1
+
+[node name="P39" type="StaticBody2D" parent="Platforms" unique_id=1981061460]
+position = Vector2(1235, 96)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P39" unique_id=1546367784]
+shape = SubResource("SH_P39")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P39" unique_id=790806755]
+offset_left = -55.0
+offset_top = -11.0
+offset_right = 55.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_PLAT")
+stretch_mode = 1
+
+[node name="P40" type="StaticBody2D" parent="Platforms" unique_id=1090618712]
+position = Vector2(1740, 86)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P40" unique_id=1734200433]
+shape = SubResource("SH_P40")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P40" unique_id=842699230]
+offset_left = -60.0
+offset_top = -11.0
+offset_right = 60.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_PLAT")
+stretch_mode = 1
+
+[node name="P41" type="StaticBody2D" parent="Platforms" unique_id=2041211276]
+position = Vector2(2235, 96)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P41" unique_id=1344528980]
+shape = SubResource("SH_P41")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P41" unique_id=742323901]
+offset_left = -55.0
+offset_top = -11.0
+offset_right = 55.0
+offset_bottom = 11.0
+texture = ExtResource("TILE_PLAT")
+stretch_mode = 1
+
+[node name="P42" type="StaticBody2D" parent="Platforms" unique_id=156175951]
+position = Vector2(1300, 574)
+
+[node name="CS" type="CollisionShape2D" parent="Platforms/P42" unique_id=845635109]
+shape = SubResource("SH_P42")
+
+[node name="VIS" type="TextureRect" parent="Platforms/P42" unique_id=848078356]
+offset_left = -200.0
+offset_top = -14.0
+offset_right = 200.0
+offset_bottom = 14.0
+texture = ExtResource("TILE_MAIN")
+stretch_mode = 1
+
+[node name="MovingPlats" type="Node2D" parent="." unique_id=423514851]
+
+[node name="MP0" type="AnimatableBody2D" parent="MovingPlats" unique_id=675261950]
+position = Vector2(340, 390)
+script = ExtResource("SCR_MPLAT")
+distance = 80.0
+speed = 55.0
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP0" unique_id=50336717]
+shape = SubResource("SH_MP0")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP0" unique_id=658682674]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP1" type="AnimatableBody2D" parent="MovingPlats" unique_id=1064157638]
+position = Vector2(820, 370)
+script = ExtResource("SCR_MPLAT")
+distance = 70.0
+speed = 55.0
+horizontal = false
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP1" unique_id=442178110]
+shape = SubResource("SH_MP1")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP1" unique_id=244751383]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP2" type="AnimatableBody2D" parent="MovingPlats" unique_id=563176464]
+position = Vector2(1400, 385)
+script = ExtResource("SCR_MPLAT")
+distance = 80.0
+speed = 55.0
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP2" unique_id=1435893693]
+shape = SubResource("SH_MP2")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP2" unique_id=1507975385]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP3" type="AnimatableBody2D" parent="MovingPlats" unique_id=92989787]
+position = Vector2(2000, 370)
+script = ExtResource("SCR_MPLAT")
+distance = 70.0
+speed = 55.0
+horizontal = false
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP3" unique_id=243349991]
+shape = SubResource("SH_MP3")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP3" unique_id=479226988]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP4" type="AnimatableBody2D" parent="MovingPlats" unique_id=1954961079]
+position = Vector2(600, 260)
+script = ExtResource("SCR_MPLAT")
+distance = 70.0
+speed = 55.0
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP4" unique_id=141158252]
+shape = SubResource("SH_MP4")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP4" unique_id=206372215]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP5" type="AnimatableBody2D" parent="MovingPlats" unique_id=1388490452]
+position = Vector2(1300, 245)
+script = ExtResource("SCR_MPLAT")
+distance = 60.0
+speed = 55.0
+horizontal = false
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP5" unique_id=466149800]
+shape = SubResource("SH_MP5")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP5" unique_id=1679751803]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="MP6" type="AnimatableBody2D" parent="MovingPlats" unique_id=1355792328]
+position = Vector2(2080, 260)
+script = ExtResource("SCR_MPLAT")
+distance = 70.0
+speed = 55.0
+
+[node name="CS" type="CollisionShape2D" parent="MovingPlats/MP6" unique_id=2122691645]
+shape = SubResource("SH_MP6")
+
+[node name="VIS" type="TextureRect" parent="MovingPlats/MP6" unique_id=256720408]
+offset_left = -44.0
+offset_top = -9.0
+offset_right = 44.0
+offset_bottom = 9.0
+texture = ExtResource("TILE_MPLAT")
+stretch_mode = 2
+
+[node name="Carts" type="Node2D" parent="." unique_id=1752064276]
+
+[node name="Hazards" type="Node2D" parent="." unique_id=1091721644]
+
+[node name="Spike0" type="Area2D" parent="Hazards" unique_id=1927847002]
+position = Vector2(270, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike0" unique_id=1672811923]
+shape = SubResource("SH_SPIKE0")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike0" unique_id=199393511]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike1" type="Area2D" parent="Hazards" unique_id=2104281386]
+position = Vector2(530, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike1" unique_id=1441455070]
+shape = SubResource("SH_SPIKE1")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike1" unique_id=194514954]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike2" type="Area2D" parent="Hazards" unique_id=1514324000]
+position = Vector2(790, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike2" unique_id=1975350654]
+shape = SubResource("SH_SPIKE2")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike2" unique_id=190409053]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike3" type="Area2D" parent="Hazards" unique_id=1515778247]
+position = Vector2(1050, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike3" unique_id=771139952]
+shape = SubResource("SH_SPIKE3")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike3" unique_id=1674091702]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike4" type="Area2D" parent="Hazards" unique_id=166061058]
+position = Vector2(1310, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike4" unique_id=311756275]
+shape = SubResource("SH_SPIKE4")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike4" unique_id=695206948]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike5" type="Area2D" parent="Hazards" unique_id=1142243322]
+position = Vector2(1570, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike5" unique_id=1993012081]
+shape = SubResource("SH_SPIKE5")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike5" unique_id=1728227327]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike6" type="Area2D" parent="Hazards" unique_id=2012326309]
+position = Vector2(1830, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike6" unique_id=846325702]
+shape = SubResource("SH_SPIKE6")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike6" unique_id=902047391]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike7" type="Area2D" parent="Hazards" unique_id=1394399119]
+position = Vector2(2090, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike7" unique_id=1952731887]
+shape = SubResource("SH_SPIKE7")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike7" unique_id=480534324]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike8" type="Area2D" parent="Hazards" unique_id=403431272]
+position = Vector2(2350, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike8" unique_id=1517207605]
+shape = SubResource("SH_SPIKE8")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike8" unique_id=86866915]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike9" type="Area2D" parent="Hazards" unique_id=1674871504]
+position = Vector2(2610, 606)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike9" unique_id=536737655]
+shape = SubResource("SH_SPIKE9")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike9" unique_id=1025478928]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike10" type="Area2D" parent="Hazards" unique_id=1887374148]
+position = Vector2(524, 466)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike10" unique_id=435786691]
+shape = SubResource("SH_SPIKE10")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike10" unique_id=85207302]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike11" type="Area2D" parent="Hazards" unique_id=1585024028]
+position = Vector2(1144, 450)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike11" unique_id=18844743]
+shape = SubResource("SH_SPIKE11")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike11" unique_id=147217807]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike12" type="Area2D" parent="Hazards" unique_id=1659662606]
+position = Vector2(1844, 466)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike12" unique_id=527427517]
+shape = SubResource("SH_SPIKE12")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike12" unique_id=1010483058]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike13" type="Area2D" parent="Hazards" unique_id=1806583584]
+position = Vector2(424, 326)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike13" unique_id=1393250688]
+shape = SubResource("SH_SPIKE13")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike13" unique_id=2062365752]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike14" type="Area2D" parent="Hazards" unique_id=779503414]
+position = Vector2(1104, 310)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike14" unique_id=152128778]
+shape = SubResource("SH_SPIKE14")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike14" unique_id=293938820]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Spike15" type="Area2D" parent="Hazards" unique_id=1915889619]
+position = Vector2(1824, 325)
+collision_layer = 4
+script = ExtResource("SCR_SPIKES")
+
+[node name="CS" type="CollisionShape2D" parent="Hazards/Spike15" unique_id=1460863751]
+shape = SubResource("SH_SPIKE15")
+
+[node name="V0" type="TextureRect" parent="Hazards/Spike15" unique_id=52731910]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+texture = ExtResource("TILE_SPIKE")
+stretch_mode = 2
+
+[node name="Torches" type="Node2D" parent="." unique_id=1398069789]
+
+[node name="T0" type="Node2D" parent="Torches" unique_id=1728411764]
+position = Vector2(180, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T0" unique_id=1125083581]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T0" unique_id=496516860]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T1" type="Node2D" parent="Torches" unique_id=579073461]
+position = Vector2(480, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T1" unique_id=555417926]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T1" unique_id=921869792]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T2" type="Node2D" parent="Torches" unique_id=1935427658]
+position = Vector2(780, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T2" unique_id=133065126]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T2" unique_id=537058746]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T3" type="Node2D" parent="Torches" unique_id=757368654]
+position = Vector2(1080, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T3" unique_id=1613790884]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T3" unique_id=548775992]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T4" type="Node2D" parent="Torches" unique_id=1527986466]
+position = Vector2(1380, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T4" unique_id=1486874073]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T4" unique_id=1290835203]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T5" type="Node2D" parent="Torches" unique_id=1345530680]
+position = Vector2(1680, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T5" unique_id=784563532]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T5" unique_id=2060339809]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T6" type="Node2D" parent="Torches" unique_id=2132984487]
+position = Vector2(1980, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T6" unique_id=1162544713]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T6" unique_id=345152124]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T7" type="Node2D" parent="Torches" unique_id=1516490912]
+position = Vector2(2280, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T7" unique_id=1164741807]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T7" unique_id=1821374566]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T8" type="Node2D" parent="Torches" unique_id=1044839915]
+position = Vector2(2580, 555)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T8" unique_id=1150192]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T8" unique_id=1883333175]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T9" type="Node2D" parent="Torches" unique_id=1506268086]
+position = Vector2(340, 415)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T9" unique_id=1094957086]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T9" unique_id=638272061]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T10" type="Node2D" parent="Torches" unique_id=68622584]
+position = Vector2(800, 395)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T10" unique_id=2084100527]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T10" unique_id=1959814642]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T11" type="Node2D" parent="Torches" unique_id=1493413344]
+position = Vector2(1400, 410)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T11" unique_id=1189311177]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T11" unique_id=584537838]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="T12" type="Node2D" parent="Torches" unique_id=1511387603]
+position = Vector2(2080, 395)
+script = ExtResource("SCR_TORCH")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Torches/T12" unique_id=1598776629]
+sprite_frames = SubResource("SF_TORCH")
+animation = &"torch"
+
+[node name="PointLight2D" type="PointLight2D" parent="Torches/T12" unique_id=1979457872]
+color = Color(1, 0.6, 0.2, 1)
+energy = 1.2
+texture_scale = 0.5
+
+[node name="Levers" type="Node2D" parent="." unique_id=1254869381]
+
+[node name="Lev0" type="Area2D" parent="Levers" unique_id=239144447]
+position = Vector2(360, 600)
+collision_layer = 8
+script = ExtResource("SCR_LEVER")
+
+[node name="CS" type="CollisionShape2D" parent="Levers/Lev0" unique_id=1944111982]
+shape = SubResource("SH_LEV0")
+
+[node name="VIS" type="TextureRect" parent="Levers/Lev0" unique_id=1576775876]
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 8.0
+offset_bottom = 12.0
+texture = ExtResource("TILE_LEVER")
+stretch_mode = 5
+
+[node name="Lev1" type="Area2D" parent="Levers" unique_id=783442791]
+position = Vector2(1100, 545)
+collision_layer = 8
+script = ExtResource("SCR_LEVER")
+
+[node name="CS" type="CollisionShape2D" parent="Levers/Lev1" unique_id=528734201]
+shape = SubResource("SH_LEV1")
+
+[node name="VIS" type="TextureRect" parent="Levers/Lev1" unique_id=1413003736]
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 8.0
+offset_bottom = 12.0
+texture = ExtResource("TILE_LEVER")
+stretch_mode = 5
+
+[node name="Lev2" type="Area2D" parent="Levers" unique_id=1952902137]
+position = Vector2(1940, 600)
+collision_layer = 8
+script = ExtResource("SCR_LEVER")
+
+[node name="CS" type="CollisionShape2D" parent="Levers/Lev2" unique_id=537241088]
+shape = SubResource("SH_LEV2")
+
+[node name="VIS" type="TextureRect" parent="Levers/Lev2" unique_id=1585497803]
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 8.0
+offset_bottom = 12.0
+texture = ExtResource("TILE_LEVER")
+stretch_mode = 5
+
+[node name="Chain21" type="TextureRect" parent="." unique_id=459574282]
+offset_left = 124.0
+offset_right = 136.0
+offset_bottom = 350.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain24" type="TextureRect" parent="." unique_id=258025684]
+offset_left = 854.0
+offset_right = 866.0
+offset_bottom = 325.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain27" type="TextureRect" parent="." unique_id=2032165583]
+offset_left = 1754.0
+offset_right = 1766.0
+offset_bottom = 310.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain30" type="TextureRect" parent="." unique_id=1561232766]
+offset_left = 259.0
+offset_right = 271.0
+offset_bottom = 200.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain33" type="TextureRect" parent="." unique_id=1874494467]
+offset_left = 1204.0
+offset_right = 1216.0
+offset_bottom = 180.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain36" type="TextureRect" parent="." unique_id=1569289734]
+offset_left = 2384.0
+offset_right = 2396.0
+offset_bottom = 195.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Chain39" type="TextureRect" parent="." unique_id=713244412]
+offset_left = 1229.0
+offset_right = 1241.0
+offset_bottom = 85.0
+texture = ExtResource("TILE_CHAIN")
+stretch_mode = 3
+
+[node name="Decorations" type="Node2D" parent="." unique_id=302125676]
+
+[node name="Barrel0" type="TextureRect" parent="Decorations" unique_id=454695679]
+offset_left = 500.0
+offset_top = 595.0
+offset_right = 524.0
+offset_bottom = 623.0
+texture = ExtResource("TILE_BARREL")
+stretch_mode = 5
+
+[node name="Barrel1" type="TextureRect" parent="Decorations" unique_id=1734826276]
+offset_left = 1000.0
+offset_top = 595.0
+offset_right = 1024.0
+offset_bottom = 623.0
+texture = ExtResource("TILE_BARREL")
+stretch_mode = 5
+
+[node name="Barrel2" type="TextureRect" parent="Decorations" unique_id=1079313775]
+offset_left = 1600.0
+offset_top = 595.0
+offset_right = 1624.0
+offset_bottom = 623.0
+texture = ExtResource("TILE_BARREL")
+stretch_mode = 5
+
+[node name="Barrel3" type="TextureRect" parent="Decorations" unique_id=1057921395]
+offset_left = 2200.0
+offset_top = 595.0
+offset_right = 2224.0
+offset_bottom = 623.0
+texture = ExtResource("TILE_BARREL")
+stretch_mode = 5
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1049774472]
+
+[node name="E0" type="CharacterBody2D" parent="Enemies" unique_id=1013484916]
+position = Vector2(360, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 3
+spd = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E0" unique_id=1650054572]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E0" unique_id=1667272882]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E0" unique_id=965163688]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E0/DetectArea" unique_id=1026693904]
+shape = SubResource("SH_DETECT")
+
+[node name="E1" type="CharacterBody2D" parent="Enemies" unique_id=1144313655]
+position = Vector2(660, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 3
+spd = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E1" unique_id=912248606]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E1" unique_id=926927787]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E1" unique_id=1767474540]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E1/DetectArea" unique_id=920528326]
+shape = SubResource("SH_DETECT")
+
+[node name="E2" type="CharacterBody2D" parent="Enemies" unique_id=2021331505]
+position = Vector2(960, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 3
+spd = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E2" unique_id=36882282]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E2" unique_id=1475594393]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E2" unique_id=2059160119]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E2/DetectArea" unique_id=200850297]
+shape = SubResource("SH_DETECT")
+
+[node name="E3" type="CharacterBody2D" parent="Enemies" unique_id=639433472]
+position = Vector2(1260, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E3" unique_id=842550628]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E3" unique_id=511287499]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E3" unique_id=1716415705]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E3/DetectArea" unique_id=332966687]
+shape = SubResource("SH_DETECT")
+
+[node name="E4" type="CharacterBody2D" parent="Enemies" unique_id=2123956250]
+position = Vector2(1560, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 3
+spd = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E4" unique_id=904891012]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E4" unique_id=1620278453]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E4" unique_id=724609943]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E4/DetectArea" unique_id=322104905]
+shape = SubResource("SH_DETECT")
+
+[node name="E5" type="CharacterBody2D" parent="Enemies" unique_id=341836894]
+position = Vector2(1860, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E5" unique_id=965210405]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E5" unique_id=1745606198]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E5" unique_id=407768463]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E5/DetectArea" unique_id=736202976]
+shape = SubResource("SH_DETECT")
+
+[node name="E6" type="CharacterBody2D" parent="Enemies" unique_id=361419313]
+position = Vector2(2160, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 3
+spd = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E6" unique_id=1878145502]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E6" unique_id=66822074]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E6" unique_id=1952230627]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E6/DetectArea" unique_id=694260896]
+shape = SubResource("SH_DETECT")
+
+[node name="E7" type="CharacterBody2D" parent="Enemies" unique_id=955020937]
+position = Vector2(2460, 580)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E7" unique_id=1170435293]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E7" unique_id=1464451281]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E7" unique_id=851438986]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E7/DetectArea" unique_id=1008896172]
+shape = SubResource("SH_DETECT")
+
+[node name="E8" type="CharacterBody2D" parent="Enemies" unique_id=767211785]
+position = Vector2(480, 440)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 105.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E8" unique_id=1279787423]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E8" unique_id=450844228]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E8" unique_id=1195333427]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E8/DetectArea" unique_id=296677142]
+shape = SubResource("SH_DETECT")
+
+[node name="E9" type="CharacterBody2D" parent="Enemies" unique_id=385535023]
+position = Vector2(960, 425)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E9" unique_id=593628127]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E9" unique_id=530600199]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E9" unique_id=1880382050]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E9/DetectArea" unique_id=1853240716]
+shape = SubResource("SH_DETECT")
+
+[node name="E10" type="CharacterBody2D" parent="Enemies" unique_id=1825234979]
+position = Vector2(1500, 440)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E10" unique_id=1531075786]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E10" unique_id=1420913311]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E10" unique_id=848394668]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E10/DetectArea" unique_id=852700116]
+shape = SubResource("SH_DETECT")
+
+[node name="E11" type="CharacterBody2D" parent="Enemies" unique_id=1419117677]
+position = Vector2(2080, 425)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E11" unique_id=422416243]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E11" unique_id=422931117]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E11" unique_id=470425186]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E11/DetectArea" unique_id=1238188023]
+shape = SubResource("SH_DETECT")
+
+[node name="E12" type="CharacterBody2D" parent="Enemies" unique_id=1552590997]
+position = Vector2(400, 300)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 110.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E12" unique_id=461327873]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E12" unique_id=859870510]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E12" unique_id=1532972801]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E12/DetectArea" unique_id=1122605481]
+shape = SubResource("SH_DETECT")
+
+[node name="E13" type="CharacterBody2D" parent="Enemies" unique_id=985967073]
+position = Vector2(880, 285)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 115.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E13" unique_id=1257640695]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E13" unique_id=1326890213]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E13" unique_id=26276064]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E13/DetectArea" unique_id=1440264011]
+shape = SubResource("SH_DETECT")
+
+[node name="E14" type="CharacterBody2D" parent="Enemies" unique_id=601595392]
+position = Vector2(1480, 300)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 115.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E14" unique_id=1451588365]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E14" unique_id=836541011]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E14" unique_id=1036874975]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E14/DetectArea" unique_id=1576437832]
+shape = SubResource("SH_DETECT")
+
+[node name="E15" type="CharacterBody2D" parent="Enemies" unique_id=1129140039]
+position = Vector2(2100, 285)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 115.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E15" unique_id=1912238065]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E15" unique_id=336863762]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E15" unique_id=2071497125]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E15/DetectArea" unique_id=5316918]
+shape = SubResource("SH_DETECT")
+
+[node name="E16" type="CharacterBody2D" parent="Enemies" unique_id=1454884549]
+position = Vector2(600, 165)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 115.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E16" unique_id=606790951]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E16" unique_id=1897698672]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E16" unique_id=912003949]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E16/DetectArea" unique_id=92977739]
+shape = SubResource("SH_DETECT")
+
+[node name="E17" type="CharacterBody2D" parent="Enemies" unique_id=836205446]
+position = Vector2(1380, 160)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 120.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E17" unique_id=1840196538]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E17" unique_id=2143028150]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E17" unique_id=373864033]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E17/DetectArea" unique_id=1183439900]
+shape = SubResource("SH_DETECT")
+
+[node name="E18" type="CharacterBody2D" parent="Enemies" unique_id=1800447369]
+position = Vector2(2200, 165)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 4
+spd = 120.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E18" unique_id=1897252932]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E18" unique_id=1228872922]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E18" unique_id=1561447294]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E18/DetectArea" unique_id=934658318]
+shape = SubResource("SH_DETECT")
+
+[node name="E19" type="CharacterBody2D" parent="Enemies" unique_id=1996425620]
+position = Vector2(1300, 530)
+collision_layer = 2
+script = ExtResource("SCR_ENM")
+max_hp = 10
+spd = 40.0
+is_boss = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/E19" unique_id=1457116977]
+scale = Vector2(1.9, 1.9)
+sprite_frames = SubResource("SF_ENEMY")
+animation = &"enemy_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/E19" unique_id=429234653]
+shape = SubResource("SH_ENEMY")
+
+[node name="DetectArea" type="Area2D" parent="Enemies/E19" unique_id=1481197813]
+collision_layer = 0
+
+[node name="DS" type="CollisionShape2D" parent="Enemies/E19/DetectArea" unique_id=513168496]
+shape = SubResource("SH_DETECT")
+
+[node name="Crystals" type="Node2D" parent="." unique_id=1592296109]
+
+[node name="C0" type="Area2D" parent="Crystals" unique_id=158876079]
+position = Vector2(300, 440)
+collision_layer = 8
+script = ExtResource("SCR_CRY")
+crystal_type = "red"
+
+[node name="AS" type="AnimatedSprite2D" parent="Crystals/C0" unique_id=85926491]
+sprite_frames = SubResource("SF_RED")
+animation = &"crystal_red"
+
+[node name="PL" type="PointLight2D" parent="Crystals/C0" unique_id=1849760596]
+energy = 1.3
+texture_scale = 0.6
+
+[node name="CS" type="CollisionShape2D" parent="Crystals/C0" unique_id=94557136]
+shape = SubResource("SH_CRYSTAL")
+
+[node name="C1" type="Area2D" parent="Crystals" unique_id=1145295150]
+position = Vector2(820, 295)
+collision_layer = 8
+script = ExtResource("SCR_CRY")
+crystal_type = "red"
+
+[node name="AS" type="AnimatedSprite2D" parent="Crystals/C1" unique_id=109491343]
+sprite_frames = SubResource("SF_RED")
+animation = &"crystal_red"
+
+[node name="PL" type="PointLight2D" parent="Crystals/C1" unique_id=1245571759]
+energy = 1.3
+texture_scale = 0.6
+
+[node name="CS" type="CollisionShape2D" parent="Crystals/C1" unique_id=1491636305]
+shape = SubResource("SH_CRYSTAL")
+
+[node name="C2" type="Area2D" parent="Crystals" unique_id=2011801796]
+position = Vector2(1580, 295)
+collision_layer = 8
+script = ExtResource("SCR_CRY")
+crystal_type = "red"
+
+[node name="AS" type="AnimatedSprite2D" parent="Crystals/C2" unique_id=985657894]
+sprite_frames = SubResource("SF_RED")
+animation = &"crystal_red"
+
+[node name="PL" type="PointLight2D" parent="Crystals/C2" unique_id=1788775281]
+energy = 1.3
+texture_scale = 0.6
+
+[node name="CS" type="CollisionShape2D" parent="Crystals/C2" unique_id=1201049164]
+shape = SubResource("SH_CRYSTAL")
+
+[node name="C3" type="Area2D" parent="Crystals" unique_id=507938051]
+position = Vector2(2280, 195)
+collision_layer = 8
+script = ExtResource("SCR_CRY")
+crystal_type = "red"
+
+[node name="AS" type="AnimatedSprite2D" parent="Crystals/C3" unique_id=1401281790]
+sprite_frames = SubResource("SF_RED")
+animation = &"crystal_red"
+
+[node name="PL" type="PointLight2D" parent="Crystals/C3" unique_id=294522895]
+energy = 1.3
+texture_scale = 0.6
+
+[node name="CS" type="CollisionShape2D" parent="Crystals/C3" unique_id=1285043946]
+shape = SubResource("SH_CRYSTAL")
+
+[node name="C4" type="Area2D" parent="Crystals" unique_id=287450977]
+position = Vector2(1180, 60)
+collision_layer = 8
+script = ExtResource("SCR_CRY")
+crystal_type = "red"
+
+[node name="AS" type="AnimatedSprite2D" parent="Crystals/C4" unique_id=641339110]
+sprite_frames = SubResource("SF_RED")
+animation = &"crystal_red"
+
+[node name="PL" type="PointLight2D" parent="Crystals/C4" unique_id=58367765]
+energy = 1.3
+texture_scale = 0.6
+
+[node name="CS" type="CollisionShape2D" parent="Crystals/C4" unique_id=650613363]
+shape = SubResource("SH_CRYSTAL")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1259333625]
+position = Vector2(70, 580)
+collision_mask = 7
+script = ExtResource("SCR_PLR")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1235829376]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SF_CESAR")
+animation = &"cesar_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1141107653]
+shape = SubResource("SH_PLAYER")
+
+[node name="AttackArea" type="Area2D" parent="Player" unique_id=995510631]
+position = Vector2(36, 0)
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="AS2" type="CollisionShape2D" parent="Player/AttackArea" unique_id=652562585]
+shape = SubResource("SH_ATTACK")
+
+[node name="ShadowSprite" type="Sprite2D" parent="Player" unique_id=2032208875]
+visible = false
+modulate = Color(0.4, 0.2, 0.8, 0.5)
+
+[node name="PowerLight" type="PointLight2D" parent="Player" unique_id=1596794011]
+enabled = false
+color = Color(0.6, 0.2, 1, 1)
+energy = 1.5
+texture_scale = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1789426213]
+limit_left = 0
+limit_top = -400
+limit_right = 2800
+limit_bottom = 900
+position_smoothing_enabled = true
+position_smoothing_speed = 5.5
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=1451544614]
+position = Vector2(2720, 570)
+collision_layer = 0
+monitoring = false
+
+[node name="ES" type="CollisionShape2D" parent="ExitDoor" unique_id=929113159]
+shape = SubResource("SH_EXIT")
+
+[node name="ExitVis" type="ColorRect" parent="ExitDoor" unique_id=1517006563]
+offset_left = -26.0
+offset_top = -90.0
+offset_right = 26.0
+color = Color(0.08, 0.55, 0.08, 0.85)
+
+[node name="ExitLbl" type="Label" parent="ExitDoor" unique_id=1658258416]
+offset_left = -44.0
+offset_top = -112.0
+offset_right = 44.0
+offset_bottom = -90.0
+theme_override_colors/font_color = Color(0.3, 1, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+text = "EXIT ➜"
+horizontal_alignment = 1
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1374955654]
+layer = 10
+script = ExtResource("SCR_HUD")
+
+[node name="Top" type="PanelContainer" parent="HUD" unique_id=501111616]
+offset_right = 1280.0
+offset_bottom = 48.0
+
+[node name="HBox" type="HBoxContainer" parent="HUD/Top" unique_id=2121020801]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Lives" type="Label" parent="HUD/Top/HBox" unique_id=1478192845]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 24
+text = "❤ ❤ ❤"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="HUD/Top/HBox" unique_id=1576165860]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.92, 0.3, 1)
+theme_override_font_sizes/font_size = 24
+text = "000000"
+horizontal_alignment = 1
+
+[node name="Crystals" type="Label" parent="HUD/Top/HBox" unique_id=1555810275]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.5, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "💎0/5"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="HUD/Top/HBox" unique_id=1539270958]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "0:00"
+horizontal_alignment = 1
+
+[node name="LvlName" type="Label" parent="HUD/Top/HBox" unique_id=2111817318]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.65, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Nivel 5 — Santuario Final"
+horizontal_alignment = 2
+
+[node name="Bot" type="HBoxContainer" parent="HUD" unique_id=565921111]
+offset_left = 8.0
+offset_top = 694.0
+offset_right = 660.0
+offset_bottom = 716.0
+theme_override_constants/separation = 10
+
+[node name="ShadowLbl" type="Label" parent="HUD/Bot" unique_id=1419526329]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.5, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "◈ Sombra 100%  [X=anclar]"
+
+[node name="ShadowBar" type="ProgressBar" parent="HUD/Bot" unique_id=1082598469]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="HintLbl" type="Label" parent="HUD" unique_id=1597261146]
+visible = false
+offset_left = 180.0
+offset_top = 52.0
+offset_right = 1100.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.95, 0.88, 0.2, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+
+[node name="PauseUI" type="CanvasLayer" parent="." unique_id=805540101]
+layer = 20
+visible = false
+script = ExtResource("SCR_PAUSE")
+
+[node name="BG2" type="ColorRect" parent="PauseUI" unique_id=454010088]
+color = Color(0, 0, 0, 0.72)
+
+[node name="Panel" type="PanelContainer" parent="PauseUI" unique_id=157374682]
+offset_left = 390.0
+offset_top = 140.0
+offset_right = 890.0
+offset_bottom = 590.0
+
+[node name="VBox" type="VBoxContainer" parent="PauseUI/Panel" unique_id=1597616572]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PTitle" type="Label" parent="PauseUI/Panel/VBox" unique_id=133455681]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 38
+text = "— PAUSA —"
+horizontal_alignment = 1
+
+[node name="BtnResume" type="Button" parent="PauseUI/Panel/VBox" unique_id=571524667]
+custom_minimum_size = Vector2(440, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "▶  REANUDAR"
+
+[node name="BtnRestart" type="Button" parent="PauseUI/Panel/VBox" unique_id=1645658540]
+custom_minimum_size = Vector2(440, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "↺  REINICIAR"
+
+[node name="BtnFS" type="Button" parent="PauseUI/Panel/VBox" unique_id=1918093467]
+custom_minimum_size = Vector2(440, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "⛶  PANTALLA COMPLETA"
+
+[node name="BtnMenu" type="Button" parent="PauseUI/Panel/VBox" unique_id=1727631007]
+custom_minimum_size = Vector2(440, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "⌂  MENÚ"
+
+[node name="MusicSlider" type="HSlider" parent="PauseUI/Panel/VBox" unique_id=1405030709]
+custom_minimum_size = Vector2(440, 28)
+layout_mode = 2
+value = 60.0
+
+[node name="SFXSlider" type="HSlider" parent="PauseUI/Panel/VBox" unique_id=2091588483]
+custom_minimum_size = Vector2(440, 28)
+layout_mode = 2
+value = 80.0
+
+[node name="ResultsUI" type="CanvasLayer" parent="." unique_id=363768311]
+layer = 19
+visible = false
+script = ExtResource("SCR_RESULTS")
+
+[node name="RBG" type="ColorRect" parent="ResultsUI" unique_id=2120995810]
+color = Color(0, 0, 0, 0.82)
+
+[node name="Panel" type="PanelContainer" parent="ResultsUI" unique_id=286177966]
+offset_left = 230.0
+offset_top = 75.0
+offset_right = 1050.0
+offset_bottom = 645.0
+
+[node name="VBox" type="VBoxContainer" parent="ResultsUI/Panel" unique_id=675345615]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="ResultsUI/Panel/VBox" unique_id=1747191731]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "Nivel completado!"
+horizontal_alignment = 1
+
+[node name="Stars" type="Label" parent="ResultsUI/Panel/VBox" unique_id=464496964]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "⭐⭐⭐"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="ResultsUI/Panel/VBox" unique_id=1325738037]
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="ResultsUI/Panel/VBox" unique_id=1436069080]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Time" type="Label" parent="ResultsUI/Panel/VBox/Stats" unique_id=2141701037]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "⏱ Tiempo: 0:00"
+
+[node name="Crystals" type="Label" parent="ResultsUI/Panel/VBox/Stats" unique_id=1859961053]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "💎 Cristales: 0/5"
+
+[node name="Enemies" type="Label" parent="ResultsUI/Panel/VBox/Stats" unique_id=1585284652]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "💀 Enemigos: 0"
+
+[node name="Deaths" type="Label" parent="ResultsUI/Panel/VBox/Stats" unique_id=1251754634]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "☠ Muertes: 0 | Golpes: 0"
+
+[node name="Score" type="Label" parent="ResultsUI/Panel/VBox/Stats" unique_id=1857295075]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "★ Puntuación: 000000"
+
+[node name="Sep2" type="HSeparator" parent="ResultsUI/Panel/VBox" unique_id=757650994]
+layout_mode = 2
+
+[node name="Btns" type="HBoxContainer" parent="ResultsUI/Panel/VBox" unique_id=526162452]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Retry" type="Button" parent="ResultsUI/Panel/VBox/Btns" unique_id=1243367162]
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "↺ Reintentar"
+
+[node name="Next" type="Button" parent="ResultsUI/Panel/VBox/Btns" unique_id=780978139]
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "➜ Siguiente"
+
+[node name="Menu" type="Button" parent="ResultsUI/Panel/VBox/Btns" unique_id=1225486273]
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "⌂ Menú"

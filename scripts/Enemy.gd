@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var max_hp: int = 2
-@export var spd: float = 85.0
-@export var patrol_range: float = 180.0
-@export var attack_range: float = 52.0
+@export var max_hp: int = 1
+@export var spd: float = 68.0
+@export var patrol_range: float = 150.0
+@export var attack_range: float = 44.0
 @export var is_boss: bool = false
 
 var hp: int
@@ -59,7 +59,7 @@ func _physics_process(dt: float):
 		_patrol()
 
 	anim.flip_h = not facing_right
-	anim.speed_scale = 0.9 if is_boss else 1.0
+	anim.speed_scale = 0.85 if is_boss else 0.95
 	anim.play("enemy_walk" if abs(velocity.x) > 10.0 else "enemy_idle")
 	move_and_slide()
 
@@ -73,7 +73,7 @@ func _physics_process(dt: float):
 			for body in ca.get_overlapping_bodies():
 				if is_instance_valid(body) and body.is_in_group("player") and body.has_method("take_damage"):
 					body.take_damage(false, global_position)
-					atk_cd = 1.1 if is_boss else 1.75
+					atk_cd = 1.4 if is_boss else 2.2
 					break
 
 func _patrol():
@@ -114,6 +114,10 @@ func _die():
 	collision_mask = 0
 	anim.play("enemy_death")
 	AudioMgr.enemy_die()
+	# Register kill centrally here so all deaths count (guarded by `dead` flag)
+	if Engine.is_editor_hint() == false:
+		if Global:
+			Global.kill_enemy()
 
 func _on_detect_enter(body: Node2D):
 	if body.is_in_group("player"):
@@ -135,5 +139,5 @@ func _check_contact_damage():
 		if collider and collider.is_in_group("player") and is_instance_valid(collider):
 			if collider.has_method("take_damage"):
 				collider.take_damage(false, global_position)
-				atk_cd = 1.1 if is_boss else 1.75
+				atk_cd = 1.4 if is_boss else 2.2
 				return

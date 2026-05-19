@@ -178,9 +178,9 @@ func _physics_process(dt: float):
 		if collider and collider.is_in_group("enemy") and is_instance_valid(collider) and not invincible:
 			if collider.has_method("take_damage"):
 				# Ask enemy to damage player via contact (enemy position passed for knockback)
-				take_damage(false, collider.global_position)
+				take_damage(false, collider.global_position, "enemy")
 			else:
-				take_damage(false, collider.global_position)
+				take_damage(false, collider.global_position, "enemy")
 
 	# Ensure animation frame signal connected (in case anim assigned later)
 	if anim and not anim.frame_changed.is_connected(_on_anim_frame_changed):
@@ -188,9 +188,20 @@ func _physics_process(dt: float):
 	if atk_active > 0.0:
 		_apply_attack_hits()
 
-	# Fall into void
-	if global_position.y > 900.0:
-		take_damage(true)
+	# Prevent falling into the void: clamp to camera limits or safe Y
+	var cam := get_viewport().get_camera_2d()
+	if cam:
+		var bottom_limit = cam.limit_bottom
+		if bottom_limit != 0 and global_position.y > bottom_limit + 8:
+			global_position.y = bottom_limit - 24
+			velocity.y = 0
+			if anim:
+				anim.play("cesar_idle")
+	else:
+		# fallback: soft clamp to a safe Y instead of dying
+		if global_position.y > 1200.0:
+			global_position.y = 1200.0
+			velocity.y = 0
 
 func _configure_attack_hitbox():
 	if atk_shape and atk_shape.shape is RectangleShape2D:
@@ -241,8 +252,8 @@ func _register_attack_hit(body: Node2D):
 	if attack_hits.has(id):
 		return
 	attack_hits[id] = true
-	if body.has_method("take_hit") and body.take_hit(global_position):
-		Global.kill_enemy()
+	if body.has_method("take_hit"):
+		body.take_hit(global_position)
 
 func _update_anim(dt: float):
 	if dead:
@@ -258,9 +269,15 @@ func _update_anim(dt: float):
 		_play("cesar_jump", 1.0)
 		return
 
+	var dir = Input.get_axis("move_left", "move_right")
 	var speed = abs(velocity.x)
-	# Running animation: step-cycler tied to horizontal speed
-	if speed > RUN_SPEED * 0.7:
+	# Give movement intent priority so idle does not win while the player is still walking.
+	if dir != 0.0 and speed > 8.0:
+		if speed > RUN_SPEED * 0.7:
+			_advance_step_anim("cesar_run", dt)
+		else:
+			_advance_step_anim("cesar_walk", dt)
+	elif speed > RUN_SPEED * 0.7:
 		_advance_step_anim("cesar_run", dt)
 	elif speed > 8.0:
 		_advance_step_anim("cesar_walk", dt)
@@ -269,9 +286,9 @@ func _update_anim(dt: float):
 		last_mob_anim = ""
 		_play("cesar_idle", 0.95)
 
-func _advance_step_anim(anim_name: String, dt: float):
+func _advance_step_anim(anim_name: String, _dt: float):
 	# Use AnimatedSprite2D playback and adjust speed_scale based on velocity
-	var base_fps = 8.0
+	var _base_fps = 8.0
 	if anim.sprite_frames and anim.sprite_frames.has_animation(anim_name):
 		# ensure animation playing
 		if anim.animation != anim_name:
@@ -295,14 +312,14 @@ func _on_anim_frame_changed():
 			AudioMgr.footstep_run()
 
 func _on_anim_finished(anim_name = ""):
-	var name = anim_name
-	if name == "":
-		name = anim.animation
-	if name == "cesar_attack":
+	var current_name = anim_name
+	if current_name == "":
+		current_name = anim.animation
+	if current_name == "cesar_attack":
 		attacking = false
 		atk_active = 0.0
 		atk_area.monitoring = false
-	elif name == "cesar_damage":
+	elif current_name == "cesar_damage":
 		hurt_anim = false
 
 func _play(a: String, speed: float = 1.0):
@@ -311,21 +328,33 @@ func _play(a: String, speed: float = 1.0):
 		anim.play(a)
 		anim.frame = 0
 
-func take_damage(instant: bool = false, from = null):
+func take_damage(instant: bool = false, from = null, source: String = "enemy"):
 	if invincible or dead:
 		return
+	if source != "enemy" and source != "spikes":
+		return
 	Global.hit_player()
-	if instant:
-		hp = 0
-	else:
+	if source == "spikes":
 		hp -= 1
 		invincible = true
-		inv_timer = 1.3
+		inv_timer = 0.9
 		AudioMgr.hurt()
+		velocity.y = min(velocity.y, -620.0)
 		if from != null:
 			var dir = sign(global_position.x - from.x)
-			velocity.x = 260.0 * dir
-			velocity.y = -180.0
+			velocity.x = 300.0 * dir
+	else:
+		if instant:
+			hp = 0
+		else:
+			hp -= 1
+			invincible = true
+			inv_timer = 1.3
+			AudioMgr.hurt()
+			if from != null:
+				var dir = sign(global_position.x - from.x)
+				velocity.x = 260.0 * dir
+				velocity.y = -180.0
 	if hp <= 0:
 		_die()
 

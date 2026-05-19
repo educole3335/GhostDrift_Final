@@ -14,8 +14,8 @@ func _ready():
 	add_child(music_player)
 
 func play_music(track: String):
-	if cur_music == track:
-		return
+	if music_player:
+		music_player.stop()
 	cur_music = track
 	var params = {
 		"menu": [220.0, false, 80],

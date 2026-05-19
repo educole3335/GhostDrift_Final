@@ -1,3 +1,12 @@
-res://scripts/PauseUI.gd
-res://scenes/MainMenu.tscn
+res://scenes/Level4.tscn
 res://scenes/Level1.tscn
+res://scenes/Level2.tscn
+res://scripts/LevelBase.gd
+res://scenes/Level3.tscn
+res://scenes/Level5.tscn
+res://scripts/Enemy.gd
+res://scenes/MainMenu.tscn
+res://scripts/Global.gd
+res://scripts/Player.gd
+res://README.md
+res://scripts/HUD.gd

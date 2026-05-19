@@ -12,6 +12,7 @@ extends CanvasLayer
 @onready var btn_menu: Button = $Panel/VBox/Btns/Menu
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	btn_next.pressed.connect(func():
 		get_tree().paused = false
@@ -34,9 +35,9 @@ func show_results():
 	visible = true
 	get_tree().paused = true
 
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.3, true).timeout
 	AudioMgr.lvl_done()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, true).timeout
 	AudioMgr.stars_sfx()
 
 	var r = Global.get_result()

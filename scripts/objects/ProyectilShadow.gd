@@ -16,6 +16,6 @@ func _physics_process(dt: float) -> void:
     for b in get_overlapping_bodies():
         if b.is_in_group("player"):
             if b.has_method("take_damage"):
-                b.take_damage()
+                b.take_damage(false, global_position, "projectile")
             queue_free()
             return

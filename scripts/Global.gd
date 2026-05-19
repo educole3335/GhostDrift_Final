@@ -44,6 +44,8 @@ const CRYSTALS_PER = {1: 5, 2: 5, 3: 5, 4: 5, 5: 5}
 signal score_changed(v)
 signal shadow_changed(v)
 signal crystal_picked(v)
+signal lives_changed(v)
+signal enemy_killed(v)
 
 func reset():
 	score = 0; lives = max_lives; current_level = 1
@@ -68,6 +70,7 @@ func add_score(pts: int):
 func kill_enemy():
 	enemies_killed += 1
 	add_score(250)
+	emit_signal("enemy_killed", enemies_killed)
 
 func hit_player():
 	damage_taken += 1
@@ -79,6 +82,12 @@ func pick_crystal():
 	crystals_collected += 1
 	add_score(200)
 	emit_signal("crystal_picked", crystals_collected)
+
+func add_life(amount: int = 1):
+	if amount <= 0:
+		return
+	lives = min(max_lives, lives + amount)
+	emit_signal("lives_changed", lives)
 
 func drain_shadow(amount: float):
 	shadow_energy = max(0.0, shadow_energy - amount)
@@ -154,3 +163,7 @@ func toggle_fs():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func reset_score():
+	score = 0
+	emit_signal("score_changed", score)

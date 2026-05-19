@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var level_lbl: Label = $Top/HBox/LvlName
 @onready var time_lbl: Label = $Top/HBox/Time
 @onready var crystal_lbl: Label = $Top/HBox/Crystals
+@onready var kills_lbl: Label = $Top/HBox/Kills
 @onready var sh_bar: ProgressBar = $Bot/ShadowBar
 @onready var sh_lbl: Label = $Bot/ShadowLbl
 @onready var hint_lbl: Label = $HintLbl
@@ -16,6 +17,10 @@ func _ready():
 	Global.score_changed.connect(_on_score)
 	Global.shadow_changed.connect(_on_shadow)
 	Global.crystal_picked.connect(_on_crystal)
+	Global.enemy_killed.connect(_on_enemy_killed)
+	# connect lives change to refresh HUD lives display
+	if Global.has_signal("lives_changed"):
+		Global.lives_changed.connect(_on_lives_changed)
 	_refresh()
 
 func _process(dt: float):
@@ -37,6 +42,7 @@ func _refresh():
 	if level_lbl: level_lbl.text = "Nv.%d — %s" % [Global.current_level, Global.lvl_name()]
 	var tot = Global.CRYSTALS_PER.get(Global.current_level, 5)
 	if crystal_lbl: crystal_lbl.text = "💎 0/%d" % tot
+	_update_kills()
 
 func _update_lives():
 	if not lives_lbl: return
@@ -61,6 +67,22 @@ func _on_crystal(v: int):
 	var tot = Global.CRYSTALS_PER.get(Global.current_level, 5)
 	if crystal_lbl: crystal_lbl.text = "💎 %d/%d" % [v, tot]
 
+func _on_enemy_killed(v: int):
+	if kills_lbl:
+		kills_lbl.text = "💀 %d/%d" % [v, _required_kills()]
+
+func _update_kills():
+	if kills_lbl:
+		kills_lbl.text = "💀 %d/%d" % [Global.enemies_killed, _required_kills()]
+
+func _required_kills() -> int:
+	var min_kills = 4
+	var progressive = min_kills + max(0, Global.current_level - 1)
+	var enemy_count = get_tree().get_nodes_in_group("enemy").size()
+	if enemy_count > 0:
+		return min(progressive, enemy_count)
+	return progressive
+
 func hint(text: String, duration: float = 3.5):
 	if hint_lbl:
 		hint_lbl.text = text
@@ -68,4 +90,7 @@ func hint(text: String, duration: float = 3.5):
 		hint_t = duration
 
 func update_lives():
+	_update_lives()
+
+func _on_lives_changed(_v: int):
 	_update_lives()

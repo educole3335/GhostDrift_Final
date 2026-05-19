@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-@onready var btn_resume:  Button  = $Panel/VBox/BtnResume
-@onready var btn_restart: Button  = $Panel/VBox/BtnRestart
-@onready var btn_fs:      Button  = $Panel/VBox/BtnFS
-@onready var btn_menu:    Button  = $Panel/VBox/BtnMenu
-@onready var music_sl:    HSlider = $Panel/VBox/MusicSlider
-@onready var sfx_sl:      HSlider = $Panel/VBox/SFXSlider
+@onready var btn_resume: Button = $Panel/VBox/BtnResume
+@onready var btn_restart: Button = $Panel/VBox/BtnRestart
+@onready var btn_fs: Button = $Panel/VBox/BtnFS
+@onready var btn_menu: Button = $Panel/VBox/BtnMenu
+@onready var music_sl: HSlider = $Panel/VBox/MusicSlider
+@onready var sfx_sl: HSlider = $Panel/VBox/SFXSlider
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	btn_resume.pressed.connect(_resume)
 	btn_restart.pressed.connect(_restart)

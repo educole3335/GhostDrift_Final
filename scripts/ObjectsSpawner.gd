@@ -10,36 +10,32 @@ const AREA2D_TYPES = ["ShadowCoin", "Trampoline", "LavaZone", "WindZone",
 var level_configs = {
 	1: [
 		{"type": "ShadowCoin", "pos": Vector2(300, -50)},
-		{"type": "ShadowCoin", "pos": Vector2(600, -80)},
-		{"type": "ShadowCoin", "pos": Vector2(900, -50)},
-		{"type": "Trampoline", "pos": Vector2(800, -30)},
-		{"type": "ShadowArcher", "pos": Vector2(1200, -40)}
+		{"type": "ShadowCoin", "pos": Vector2(700, -80)},
+		{"type": "ShadowCoin", "pos": Vector2(1200, -50)},
+		{"type": "ShadowArcher", "pos": Vector2(1400, -40)}
 	],
 	2: [
-		{"type": "ShadowCoin", "count": 4},
+		{"type": "ShadowCoin", "count": 3},
 		{"type": "ExplosiveBarrel", "pos": Vector2(1400, -30)},
-		{"type": "ShadowArcher", "count": 2},
-		{"type": "Trampoline", "pos": Vector2(650, -30)}
+		{"type": "ShadowArcher", "count": 1}
 	],
 	3: [
-		{"type": "LavaZone", "pos": Vector2(1100, 0), "size": Vector2(600, 80)},
 		{"type": "WindZone", "pos": Vector2(600, -20)},
-		{"type": "Specter", "count": 2},
-		{"type": "ShadowCoin", "count": 3}
-	],
-	4: [
-		{"type": "PlatformShadow", "count": 3},
-		{"type": "PressureButton", "pos": Vector2(900, -20)},
-		{"type": "Key", "pos": Vector2(1600, -60)},
-		{"type": "ShadowArcher", "count": 2},
+		{"type": "Specter", "count": 1},
 		{"type": "ShadowCoin", "count": 2}
 	],
+	4: [
+		{"type": "PlatformShadow", "count": 1},
+		{"type": "PressureButton", "pos": Vector2(900, -20)},
+		{"type": "Key", "pos": Vector2(1600, -60)},
+		{"type": "ShadowArcher", "count": 1},
+		{"type": "ShadowCoin", "count": 1}
+	],
 	5: [
-		{"type": "ShadowArcher", "count": 3},
-		{"type": "ExplosiveBarrel", "count": 3},
-		{"type": "LavaZone", "pos": Vector2(1000, 0), "size": Vector2(1000, 80)},
-		{"type": "Specter", "count": 2},
-		{"type": "ShadowCoin", "count": 5}
+		{"type": "ShadowArcher", "count": 1},
+		{"type": "ExplosiveBarrel", "count": 1},
+		{"type": "Specter", "count": 1},
+		{"type": "ShadowCoin", "count": 3}
 	]
 }
 
@@ -73,19 +69,19 @@ func _spawn_type(t: String, item: Dictionary, idx: int) -> void:
 		"ShadowCoin":
 			node = _create_instance("ShadowCoin")
 			if node:
-				node.position = item.get("pos", Vector2(200 + idx * 120, -50))
+				node.position = item.get("pos", Vector2(200 + idx * 180, -50))
 		"Trampoline":
 			node = _create_instance("Trampoline")
 			if node:
-				node.position = item.get("pos", Vector2(800 + idx * 80, -30))
+				node.position = item.get("pos", Vector2(800 + idx * 120, -30))
 		"ExplosiveBarrel":
 			node = _create_instance("ExplosiveBarrel")
 			if node:
-				node.position = item.get("pos", Vector2(1400 + idx * 80, -30))
+				node.position = item.get("pos", Vector2(1400 + idx * 140, -30))
 		"ShadowArcher":
 			node = _create_instance("ShadowArcher")
 			if node:
-				node.position = item.get("pos", Vector2(1200 + idx * 180, -40))
+				node.position = item.get("pos", Vector2(1200 + idx * 260, -40))
 		"LavaZone":
 			node = _create_instance("LavaZone")
 			if node:
@@ -99,11 +95,11 @@ func _spawn_type(t: String, item: Dictionary, idx: int) -> void:
 		"Specter":
 			node = _create_instance("Specter")
 			if node:
-				node.position = item.get("pos", Vector2(400 + idx * 220, -40))
+				node.position = item.get("pos", Vector2(400 + idx * 300, -40))
 		"PlatformShadow":
 			node = _create_instance("PlatformShadow")
 			if node:
-				node.position = Vector2(500 + idx * 240, -80)
+				node.position = Vector2(500 + idx * 320, -80)
 		"PressureButton":
 			node = _create_instance("PressureButton")
 			if node:

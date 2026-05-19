@@ -32,4 +32,4 @@ func _physics_process(dt: float) -> void:
 		_dmg_acc = 0.0
 		for b in overlapping:
 			if is_instance_valid(b) and b.has_method("take_damage"):
-				b.take_damage()
+					b.take_damage(false, global_position, "lava")

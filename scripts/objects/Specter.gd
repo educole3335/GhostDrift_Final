@@ -23,7 +23,7 @@ func _process(dt: float) -> void:
 		global_position += diff.normalized() * speed * dt
 	if _damage_cd <= 0.0 and diff.length() < damage_range:
 		if player.has_method("take_damage"):
-			player.take_damage()
+			player.take_damage(false, global_position, "specter")
 			_damage_cd = 1.5
 
 func take_hit(_from: Vector2) -> bool:
